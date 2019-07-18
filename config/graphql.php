@@ -100,10 +100,10 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                
+                'collectibles' => \App\GraphQL\Query\CollectiblesQuery::class,
             ],
             'mutation' => [
-                
+                'collectibles' => \App\GraphQL\Mutation\CollectiblesMutation::class,
             ],
             'middleware' => [],
             'method'     => ['get', 'post'],
@@ -120,7 +120,8 @@ return [
     // ]
     //
     'types' => [
-        
+        'collectibleType' => App\GraphQL\Type\CollectibleType::class,
+        'collectibleInput' => App\GraphQL\Input\CollectibleInput::class,
         // 'example'           => ExampleType::class,
         // 'relation_example'  => ExampleRelationType::class,
     ],
