@@ -15,7 +15,8 @@ class CollectiblesQuery extends Query
 
     public function type()
     {
-        return Type::listOf(GraphQL::type('collectibleType'));
+        //return Type::listOf(GraphQL::type('collectibleType'));
+        return GraphQL::paginate('collectibleType');
     }
 
     public function args()
@@ -48,6 +49,6 @@ class CollectiblesQuery extends Query
         foreach ($args['filter'] as $arg => $value) {
             $collectibles = $collectibles->where($arg, 'like',  '%'.$value.'%');
         }
-        return $collectibles->get();
+        return $collectibles->paginate($args['limit'], ['*'], 'page', $args['page']);
     }
 }
