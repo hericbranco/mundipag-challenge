@@ -104,6 +104,7 @@ return [
             ],
             'mutation' => [
                 'collectibles' => \App\GraphQL\Mutation\CollectiblesMutation::class,
+                'deleteCollectibles' => \App\GraphQL\Mutation\DeleteCollectiblesMutation::class,
             ],
             'middleware' => [],
             'method'     => ['get', 'post'],
